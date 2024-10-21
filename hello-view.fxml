@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #e1e5ee;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bmi_calculator.BMIController">
+    <children>
+        <MenuBar layoutX="-1.0" layoutY="1.0" prefHeight="28.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onClearMenuClick" text="Clear" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onExitMenuClick" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onHelpMenuClick" text="How to use" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <Text fill="#2a324b" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate your body mass index" textAlignment="CENTER">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Text>
+                <HBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <TextField fx:id="weightField" promptText="Weight">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <RadioButton fx:id="kg_button" mnemonicParsing="false" selected="true" text="kg">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="mass" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="lbs_button" mnemonicParsing="false" text="lbs" toggleGroup="$mass" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <TextField fx:id="heightField" promptText="Height">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <RadioButton fx:id="cm_button" mnemonicParsing="false" selected="true" text="cm">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="height" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="inch_button" mnemonicParsing="false" text="inch" toggleGroup="$height" />
+                    </children>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#onCalculateButtonClick" prefWidth="180.0" style="-fx-background-color: #2a324b;" text="Calculate" textAlignment="CENTER" textFill="#e1e5ee" />
+                <Label fx:id="statusResultLabel" text="Status result">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="bmiResultLabel" text="BMI result">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>
